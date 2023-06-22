@@ -1,0 +1,128 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API Documentation PT. Rembon Karya Digital",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/v1/orders/get-all": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get all orders",
+                "operationId": "getAllOrders",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get all orders"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "pesanan_id": {
+                                                        "type": "string",
+                                                        "example": "635c0bc6-a8b3-4888-8d96-d4e7e1eb4537"
+                                                    },
+                                                    "no_pesanan": {
+                                                        "type": "string",
+                                                        "example": "PES001"
+                                                    },
+                                                    "tgl_pesanan": {
+                                                        "type": "string",
+                                                        "format": "datetime",
+                                                        "example": "2023-06-22 18:02:34.670668"
+                                                    },
+                                                    "nama_lengkap_user": {
+                                                        "type": "string",
+                                                        "example": "John Doe"
+                                                    },
+                                                    "total_harga": {
+                                                        "type": "integer",
+                                                        "example": 350
+                                                    },
+                                                    "jumlah_produk": {
+                                                        "type": "integer",
+                                                        "example": 3
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/stocks/get-all": {
+            "get": {
+                "tags": [
+                    "Stocks"
+                ],
+                "summary": "Get all stocks",
+                "operationId": "getAllStocks",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get all stock"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "produk_id": {
+                                                        "type": "string",
+                                                        "example": "d746a0e2-64e9-48d6-a974-c10c91ad0b56"
+                                                    },
+                                                    "nama_produk": {
+                                                        "type": "string",
+                                                        "example": "Kemeja Flanel"
+                                                    },
+                                                    "stok_sekarang": {
+                                                        "type": "integer",
+                                                        "example": 90
+                                                    },
+                                                    "stok_terjual": {
+                                                        "type": "integer",
+                                                        "example": 4
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
