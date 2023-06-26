@@ -17,13 +17,13 @@ class OrderRepositories
             SUM(pr.harga * pp.jumlah) AS total_harga,
             SUM(pp.jumlah) AS jumlah_produk
         FROM
-            hrm.\"Trx\".pesanan AS p
+            postgres.\"Trx\".pesanan AS p
         JOIN
-            hrm.\"Usr\".user AS u ON p.user_id = u.user_id
+            postgres.\"Usr\".user AS u ON p.user_id = u.user_id
         JOIN
-            hrm.\"Trx\".pesanan_produk AS pp ON p.pesanan_id = pp.pesanan_id
+            postgres.\"Trx\".pesanan_produk AS pp ON p.pesanan_id = pp.pesanan_id
         JOIN
-            hrm.\"Mst\".produk AS pr ON pp.produk_id = pr.produk_id
+            postgres.\"Mst\".produk AS pr ON pp.produk_id = pr.produk_id
         GROUP BY
             p.pesanan_id,
             p.no_pesanan,
@@ -31,7 +31,7 @@ class OrderRepositories
             u.nama_depan,
             u.nama_belakang";
 
-        return DB::connection('pgsql')->select($query);
+        return DB::select($query);
     }
 
 }

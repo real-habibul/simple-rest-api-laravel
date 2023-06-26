@@ -18,4 +18,6 @@ Route::get('/', function () {
 });
 
 Route::get('/order', 'App\Http\Controllers\API\V1\Order\OrderController@index')->name('orders.index');
+
 Route::get('/stock', 'App\Http\Controllers\API\V1\Stock\StockController@index')->name('stocks.index');
+Route::post('/stocks/add', 'App\Http\Controllers\API\V1\Stock\StockController@addStock')->name('stocks.add');

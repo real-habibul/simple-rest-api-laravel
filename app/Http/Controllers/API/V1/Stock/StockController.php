@@ -6,6 +6,8 @@ use App\Domain\Stock\StockRepositories;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Mst\Produk;
+
 class StockController extends Controller
 {
     protected $repositories;
@@ -44,9 +46,12 @@ class StockController extends Controller
         }
     }
 
+
     public function index(Request $request)
     {
-        return view('stock.index');
+        $dataProduk = Produk::all();
+
+        return view('stock.index', compact('dataProduk'));
     }
 
 }

@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Pesanan / Order</title>
     <link href="https://cdn.datatables.net/1.11.0/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css.map') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 </head>
 <body>
     <div class="container">
@@ -25,6 +28,8 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script>
         $(document).ready(function() {
             var stocksTable = $('#order-table').DataTable({
