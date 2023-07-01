@@ -8,6 +8,20 @@ class User extends Model
 {
     protected $table = 'Usr.user';
     protected $primaryKey = 'user_id';
+    public $timestamps = false;
+
+    protected $casts = [
+        'user_id' => 'string',
+    ];
+
+    protected $fillable = [
+        'nama_depan',
+        'nama_belakang',
+        'alamat',
+        'nomor_hp',
+        'jk',
+        'tgl_lahir'
+    ];
 
     // Relationships
     public function pesanan()

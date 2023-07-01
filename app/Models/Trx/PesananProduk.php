@@ -9,6 +9,12 @@ class PesananProduk extends Model
     protected $table = 'Trx.pesanan_produk';
     protected $primaryKey = 'pesanan_produk_id';
 
+    protected $casts = [
+        'pesanan_produk_id' => 'string',
+        'pesanan_id' => 'string',
+        'produk_id' => 'string',
+    ];
+
     // Relationships
     public function pesanan()
     {

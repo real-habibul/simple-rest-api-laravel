@@ -2,9 +2,680 @@
     "openapi": "3.0.0",
     "info": {
         "title": "API Documentation PT. Rembon Karya Digital",
-        "version": "1.0.0"
+        "contact": {
+            "name": "Ahmad Habibul Ulum",
+            "email": "ahmadhabibululum@gmail.com"
+        },
+        "version": "1.0.1"
     },
     "paths": {
+        "/api/v1/master-data/produk": {
+            "get": {
+                "tags": [
+                    "Master Data - Produk"
+                ],
+                "summary": "Get all produk",
+                "description": "Get data all produk",
+                "operationId": "get produk /api/v1/master-data/produk",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get all produk"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "produk_id": {
+                                                        "type": "string",
+                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
+                                                    },
+                                                    "nama": {
+                                                        "type": "string",
+                                                        "example": "Kemeja Flanel"
+                                                    },
+                                                    "brand": {
+                                                        "type": "string",
+                                                        "example": "Uniqlo"
+                                                    },
+                                                    "harga": {
+                                                        "type": "integer",
+                                                        "example": 200000
+                                                    },
+                                                    "slug": {
+                                                        "type": "string",
+                                                        "example": "kemeja-flanel"
+                                                    },
+                                                    "tgl_dibuat": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    },
+                                                    "tgl_diubah": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    },
+                                                    "tgl_release": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    },
+                                                    "tgl_dihapus": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Master Data - Produk"
+                ],
+                "summary": "Create a new produk",
+                "description": "Store a newly created resource in storage.",
+                "operationId": "post produk /api/v1/master-data/produk",
+                "requestBody": {
+                    "description": "Produck data",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nama": {
+                                        "type": "string"
+                                    },
+                                    "brand": {
+                                        "type": "string"
+                                    },
+                                    "harga": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success create new produk",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get all produk"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "produk_id": {
+                                                        "type": "string",
+                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
+                                                    },
+                                                    "nama": {
+                                                        "type": "string",
+                                                        "example": "Kemeja Flanel"
+                                                    },
+                                                    "brand": {
+                                                        "type": "string",
+                                                        "example": "Uniqlo"
+                                                    },
+                                                    "harga": {
+                                                        "type": "integer",
+                                                        "example": 200000
+                                                    },
+                                                    "slug": {
+                                                        "type": "string",
+                                                        "example": "kemeja-flanel"
+                                                    },
+                                                    "tgl_dibuat": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    },
+                                                    "tgl_diubah": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    },
+                                                    "tgl_release": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    },
+                                                    "tgl_dihapus": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed create new produk"
+                    }
+                }
+            }
+        },
+        "/api/v1/master-data/produk/{produk}": {
+            "get": {
+                "tags": [
+                    "Master Data - Produk"
+                ],
+                "summary": "Get a specific produk",
+                "description": "Get a specific produk by produk_id",
+                "operationId": "get produk by id /api/v1/master-data/produk/{produk}",
+                "parameters": [
+                    {
+                        "name": "produk",
+                        "in": "path",
+                        "description": "Produk ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get produk"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Master Data - Produk"
+                ],
+                "summary": "Update a specific produk",
+                "description": "Update a specific produk by produk_id",
+                "operationId": "update produk /api/v1/master-data/produk/{produk}",
+                "parameters": [
+                    {
+                        "name": "produk",
+                        "in": "path",
+                        "description": "Produk ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nama": {
+                                        "type": "string"
+                                    },
+                                    "brand": {
+                                        "type": "string"
+                                    },
+                                    "harga": {
+                                        "type": "number"
+                                    },
+                                    "slug": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get all produk"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "produk_id": {
+                                                        "type": "string",
+                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
+                                                    },
+                                                    "nama": {
+                                                        "type": "string",
+                                                        "example": "Kemeja Flanel"
+                                                    },
+                                                    "brand": {
+                                                        "type": "string",
+                                                        "example": "Uniqlo"
+                                                    },
+                                                    "harga": {
+                                                        "type": "integer",
+                                                        "example": 200000
+                                                    },
+                                                    "slug": {
+                                                        "type": "string",
+                                                        "example": "kemeja-flanel"
+                                                    },
+                                                    "tgl_dibuat": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    },
+                                                    "tgl_diubah": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    },
+                                                    "tgl_release": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    },
+                                                    "tgl_dihapus": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/master-data/produk-stok": {
+            "get": {
+                "tags": [
+                    "Master Data - Produk Stok"
+                ],
+                "summary": "Get all produk stok",
+                "description": "Get all data produk stok",
+                "operationId": "getProdukStok",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get all produk stok"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "produk_id": {
+                                                        "type": "string",
+                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
+                                                    },
+                                                    "stok": {
+                                                        "type": "string",
+                                                        "example": "Kemeja Flanel"
+                                                    },
+                                                    "tgl_diubah": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Master Data - Produk Stok"
+                ],
+                "summary": "Create a new product stok",
+                "description": "Store a newly created resource in storage. and update tgl_release in table produk",
+                "operationId": "post produk stok /api/v1/master-data/produk-stok",
+                "requestBody": {
+                    "description": "Data Produk Stok",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "produk_id": {
+                                        "type": "string"
+                                    },
+                                    "stok": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success create new produk",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success create new produk stok"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "produk_id": {
+                                                        "type": "string",
+                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
+                                                    },
+                                                    "stok": {
+                                                        "type": "integer",
+                                                        "example": 20
+                                                    },
+                                                    "tgl_diubah": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed create new produk stok"
+                    }
+                }
+            }
+        },
+        "/api/v1/master-data/produk-stok/{produk_id}": {
+            "get": {
+                "tags": [
+                    "Master Data - Produk Stok"
+                ],
+                "summary": "Get specific produk stok",
+                "description": "Display the specified resource.",
+                "operationId": "get specific produk stok /api/v1/master-data/produk-stok/{produk_id}",
+                "parameters": [
+                    {
+                        "name": "produk_id",
+                        "in": "path",
+                        "description": "Produk ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get produk stok"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "produk_id": {
+                                                        "type": "string",
+                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
+                                                    },
+                                                    "stok": {
+                                                        "type": "integer",
+                                                        "example": "2"
+                                                    },
+                                                    "tgl_diubah": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Master Data - Produk Stok"
+                ],
+                "summary": "Update existing produk stok",
+                "description": "Update the specified resource in storage.",
+                "operationId": "update existing produk stok /api/v1/master-data/produk-stok/{produk_id}",
+                "parameters": [
+                    {
+                        "name": "produk_id",
+                        "in": "path",
+                        "description": "Produk ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Data Produk Stok",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "stok": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success update existing produk stok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success update produk stok"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "produk_id": {
+                                                        "type": "string",
+                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
+                                                    },
+                                                    "stok": {
+                                                        "type": "integer",
+                                                        "example": 20
+                                                    },
+                                                    "tgl_diubah": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed update existing produk stok"
+                    }
+                }
+            }
+        },
+        "/api/v1/master-data/produk-stok/add-stok": {
+            "post": {
+                "tags": [
+                    "Master Data - Produk Stok"
+                ],
+                "summary": "add new value to existing produk stok",
+                "description": "Add stok to existing produk stok",
+                "operationId": "post add-stok to produk stok /api/v1/master-data/produk-stok",
+                "requestBody": {
+                    "description": "Data Produk Stok",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "produk_id": {
+                                        "type": "string"
+                                    },
+                                    "stok": {
+                                        "type": "number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success add stok to existing produk stok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success add stok to existing produk stok"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "produk_id": {
+                                                        "type": "string",
+                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
+                                                    },
+                                                    "stok": {
+                                                        "type": "integer",
+                                                        "example": 20
+                                                    },
+                                                    "tgl_diubah": {
+                                                        "type": "string",
+                                                        "example": "2021-01-01 00:00:00"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Failed add stok to existing produk stok"
+                    }
+                }
+            }
+        },
         "/api/v1/orders/get-all": {
             "get": {
                 "tags": [

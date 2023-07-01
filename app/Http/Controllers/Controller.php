@@ -12,7 +12,11 @@ class Controller extends BaseController
     /**
      * @OA\Info(
      *    title="API Documentation PT. Rembon Karya Digital",
-     *    version="1.0.0",
+     *    version="1.0.1",
+     *    @OA\Contact(
+     *     email="ahmadhabibululum@gmail.com",
+     *     name="Ahmad Habibul Ulum"
+     *   )
      * ),
      */
     use AuthorizesRequests, ValidatesRequests;
