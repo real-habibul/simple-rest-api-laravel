@@ -676,6 +676,291 @@
                 }
             }
         },
+        "/api/v1/master-data/user": {
+            "get": {
+                "tags": [
+                    "Master Data - User"
+                ],
+                "summary": "Get all user",
+                "description": "Display a listing of the resource.",
+                "operationId": "get user /api/v1/master-data/user",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get all user"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/User"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 400
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Failed get all user"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Master Data - User"
+                ],
+                "summary": "Create user",
+                "description": "Store a newly created resource in storage.",
+                "operationId": "create user /api/v1/master-data/user",
+                "requestBody": {
+                    "description": "User object that needs to be added to the store",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success create user"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "nama_depan": {
+                                                        "type": "string",
+                                                        "example": "Rudi"
+                                                    },
+                                                    "nama_belakang": {
+                                                        "type": "string",
+                                                        "example": "Setiawan"
+                                                    },
+                                                    "alamat": {
+                                                        "type": "string",
+                                                        "example": "Medan"
+                                                    },
+                                                    "nomor_hp": {
+                                                        "type": "string",
+                                                        "example": "08567890123"
+                                                    },
+                                                    "jk": {
+                                                        "type": "string",
+                                                        "example": "M"
+                                                    },
+                                                    "tgl_lahir": {
+                                                        "type": "string",
+                                                        "example": "1994-11-27"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/master-data/user/{id}": {
+            "get": {
+                "tags": [
+                    "Master Data - User"
+                ],
+                "summary": "Get user by id",
+                "description": "Display the specified resource.",
+                "operationId": "get user by id /api/v1/master-data/user/{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id of user",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get user"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/User"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Not Found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 404
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Failed get user"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Master Data - User"
+                ],
+                "summary": "Update user",
+                "description": "Update the specified resource in storage.",
+                "operationId": "update user /api/v1/master-data/user/{id}",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "id user",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "uuid"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "User object that needs to be added to the store",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success update user"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "nama_depan": {
+                                                        "type": "string",
+                                                        "example": "Rudi"
+                                                    },
+                                                    "nama_belakang": {
+                                                        "type": "string",
+                                                        "example": "Setiawan"
+                                                    },
+                                                    "alamat": {
+                                                        "type": "string",
+                                                        "example": "Medan"
+                                                    },
+                                                    "nomor_hp": {
+                                                        "type": "string",
+                                                        "example": "08567890123"
+                                                    },
+                                                    "jk": {
+                                                        "type": "string",
+                                                        "example": "M"
+                                                    },
+                                                    "tgl_lahir": {
+                                                        "type": "string",
+                                                        "example": "1994-11-27"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/orders/get-all": {
             "get": {
                 "tags": [
@@ -793,6 +1078,45 @@
                         }
                     }
                 }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "title": "User",
+                "description": "Model of User",
+                "properties": {
+                    "user_id": {
+                        "type": "string",
+                        "example": "eb478114-48ae-4988-9030-4374e5558587"
+                    },
+                    "nama_depan": {
+                        "type": "string",
+                        "example": "Rudi"
+                    },
+                    "nama_belakang": {
+                        "type": "string",
+                        "example": "Setiawan"
+                    },
+                    "alamat": {
+                        "type": "string",
+                        "example": "Jl. Raya Kedung Halang"
+                    },
+                    "nomor_hp": {
+                        "type": "string",
+                        "example": "081234567890"
+                    },
+                    "jk": {
+                        "type": "string",
+                        "example": "L"
+                    },
+                    "tgl_lahir": {
+                        "type": "string",
+                        "example": "1990-01-01"
+                    }
+                },
+                "type": "object"
             }
         }
     }

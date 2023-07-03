@@ -47,5 +47,12 @@ Route::prefix('/v1')->group(function () {
 
             Route::post('/add-stok', 'App\Http\Controllers\API\V1\MasterData\ProdukStokController@addStok');
         });
+
+        // User
+        Route::prefix('/user')->group(function () {
+            Route::apiResource('/', 'App\Http\Controllers\API\V1\MasterData\UserController')
+                ->only(['index', 'store', 'show', 'update'])
+                ->parameters(['' => 'user']);
+        });
     });
 });
