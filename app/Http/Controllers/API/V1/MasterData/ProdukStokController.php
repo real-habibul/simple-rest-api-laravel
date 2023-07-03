@@ -14,7 +14,16 @@ class ProdukStokController extends Controller
 {
     /**
      * Get all data produk stok
-     * 
+     *
+     * @OA\Schema(
+     *     schema="ProdukStok",
+     *     title="Produk Stok",
+     *     description="Model of Produk Stok",
+     *     @OA\Property(property="produk_id", type="string", example="47d0ae85-17c6-4b80-b2d7-0efa89cf968f"),
+     *     @OA\Property(property="stok", type="number", example="20"),
+     *     @OA\Property(property="tgl_diubah", type="string", example="2021-01-01 00:00:00")
+     *     ),
+     *
      * @OA\Get(
      *     path="/api/v1/master-data/produk-stok",
      *     tags={"Master Data - Produk Stok"},
@@ -23,11 +32,7 @@ class ProdukStokController extends Controller
      *     @OA\Response(response="200", description="Success", @OA\JsonContent(
      *         @OA\Property(property="status", type="integer", example=200),
      *         @OA\Property(property="message", type="string", example="Success get all produk stok"),
-     *         @OA\Property(property="data", type="array", @OA\Items(
-     *         @OA\Property(property="produk_id", type="string", example="47d0ae85-17c6-4b80-b2d7-0efa89cf968f"),
-     *         @OA\Property(property="stok", type="string", example="Kemeja Flanel"),
-     *         @OA\Property(property="tgl_diubah", type="string", example="2021-01-01 00:00:00")
-     *          ))
+     *         @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/ProdukStok"))
      *     ))
      * )
      */
@@ -70,13 +75,10 @@ class ProdukStokController extends Controller
      *     @OA\Response(response="200", description="Success create new produk", @OA\JsonContent(
      *         @OA\Property(property="status", type="integer", example=200),
      *         @OA\Property(property="message", type="string", example="Success create new produk stok"),
-     *         @OA\Property(property="data", type="array", @OA\Items(
-     *         @OA\Property(property="produk_id", type="string", example="47d0ae85-17c6-4b80-b2d7-0efa89cf968f"),
-     *         @OA\Property(property="stok", type="integer", example=20),
-     *         @OA\Property(property="tgl_diubah", type="string", example="2021-01-01 00:00:00")
+     *         @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/ProdukStok"))
      *          ))
      *     )),
-     *     @OA\Response(response="400", description="Failed create new produk stok") 
+     *     @OA\Response(response="400", description="Failed create new produk stok")
      * )
      */
     public function store(Request $request)
@@ -123,7 +125,7 @@ class ProdukStokController extends Controller
 
     /**
      * Display the specified resource.
-     * 
+     *
      * @OA\Get(
      *      path="/api/v1/master-data/produk-stok/{produk_id}",
      *      tags={"Master Data - Produk Stok"},
@@ -141,10 +143,7 @@ class ProdukStokController extends Controller
      *     @OA\Response(response="200", description="Success", @OA\JsonContent(
      *         @OA\Property(property="status", type="integer", example=200),
      *         @OA\Property(property="message", type="string", example="Success get produk stok"),
-     *         @OA\Property(property="data", type="array", @OA\Items(
-     *         @OA\Property(property="produk_id", type="string", example="47d0ae85-17c6-4b80-b2d7-0efa89cf968f"),
-     *         @OA\Property(property="stok", type="integer", example="2"),
-     *         @OA\Property(property="tgl_diubah", type="string", example="2021-01-01 00:00:00")
+     *         @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/ProdukStok"))
      *          ))
      *     ))
      * )
@@ -168,7 +167,7 @@ class ProdukStokController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * 
+     *
      * @OA\Put(
      *    path="/api/v1/master-data/produk-stok/{produk_id}",
      *   tags={"Master Data - Produk Stok"},
@@ -194,11 +193,7 @@ class ProdukStokController extends Controller
      *    @OA\Response(response="200", description="Success update existing produk stok", @OA\JsonContent(
      *       @OA\Property(property="status", type="integer", example=200),
      *       @OA\Property(property="message", type="string", example="Success update produk stok"),
-     *       @OA\Property(property="data", type="array", @OA\Items(
-     *           @OA\Property(property="produk_id", type="string", example="47d0ae85-17c6-4b80-b2d7-0efa89cf968f"),
-     *           @OA\Property(property="stok", type="integer", example=20),
-     *           @OA\Property(property="tgl_diubah", type="string", example="2021-01-01 00:00:00")
-     *           ))
+     *       @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/ProdukStok"))
      *        )),
      *    @OA\Response(response="400", description="Failed update existing produk stok")
      * )
@@ -250,13 +245,9 @@ class ProdukStokController extends Controller
      *     @OA\Response(response="200", description="Success add stok to existing produk stok", @OA\JsonContent(
      *         @OA\Property(property="status", type="integer", example=200),
      *         @OA\Property(property="message", type="string", example="Success add stok to existing produk stok"),
-     *         @OA\Property(property="data", type="array", @OA\Items(
-     *         @OA\Property(property="produk_id", type="string", example="47d0ae85-17c6-4b80-b2d7-0efa89cf968f"),
-     *         @OA\Property(property="stok", type="integer", example=20),
-     *         @OA\Property(property="tgl_diubah", type="string", example="2021-01-01 00:00:00")
-     *          ))
+     *         @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/ProdukStok"))
      *     )),
-     *     @OA\Response(response="400", description="Failed add stok to existing produk stok") 
+     *     @OA\Response(response="400", description="Failed add stok to existing produk stok")
      * )
      */
     public function addStok(Request $request)

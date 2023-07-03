@@ -361,21 +361,7 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "properties": {
-                                                    "produk_id": {
-                                                        "type": "string",
-                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
-                                                    },
-                                                    "stok": {
-                                                        "type": "string",
-                                                        "example": "Kemeja Flanel"
-                                                    },
-                                                    "tgl_diubah": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    }
-                                                },
-                                                "type": "object"
+                                                "$ref": "#/components/schemas/ProdukStok"
                                             }
                                         }
                                     },
@@ -430,21 +416,7 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "properties": {
-                                                    "produk_id": {
-                                                        "type": "string",
-                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
-                                                    },
-                                                    "stok": {
-                                                        "type": "integer",
-                                                        "example": 20
-                                                    },
-                                                    "tgl_diubah": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    }
-                                                },
-                                                "type": "object"
+                                                "$ref": "#/components/schemas/ProdukStok"
                                             }
                                         }
                                     },
@@ -452,9 +424,6 @@
                                 }
                             }
                         }
-                    },
-                    "400": {
-                        "description": "Failed create new produk stok"
                     }
                 }
             }
@@ -496,21 +465,7 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "properties": {
-                                                    "produk_id": {
-                                                        "type": "string",
-                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
-                                                    },
-                                                    "stok": {
-                                                        "type": "integer",
-                                                        "example": "2"
-                                                    },
-                                                    "tgl_diubah": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    }
-                                                },
-                                                "type": "object"
+                                                "$ref": "#/components/schemas/ProdukStok"
                                             }
                                         }
                                     },
@@ -573,21 +528,7 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "properties": {
-                                                    "produk_id": {
-                                                        "type": "string",
-                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
-                                                    },
-                                                    "stok": {
-                                                        "type": "integer",
-                                                        "example": 20
-                                                    },
-                                                    "tgl_diubah": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    }
-                                                },
-                                                "type": "object"
+                                                "$ref": "#/components/schemas/ProdukStok"
                                             }
                                         }
                                     },
@@ -647,21 +588,7 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "properties": {
-                                                    "produk_id": {
-                                                        "type": "string",
-                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
-                                                    },
-                                                    "stok": {
-                                                        "type": "integer",
-                                                        "example": 20
-                                                    },
-                                                    "tgl_diubah": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    }
-                                                },
-                                                "type": "object"
+                                                "$ref": "#/components/schemas/ProdukStok"
                                             }
                                         }
                                     },
@@ -1083,6 +1010,25 @@
     },
     "components": {
         "schemas": {
+            "ProdukStok": {
+                "title": "Produk Stok",
+                "description": "Model of Produk Stok",
+                "properties": {
+                    "produk_id": {
+                        "type": "string",
+                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
+                    },
+                    "stok": {
+                        "type": "number",
+                        "example": "20"
+                    },
+                    "tgl_diubah": {
+                        "type": "string",
+                        "example": "2021-01-01 00:00:00"
+                    }
+                },
+                "type": "object"
+            },
             "User": {
                 "title": "User",
                 "description": "Model of User",
@@ -1117,6 +1063,11 @@
                     }
                 },
                 "type": "object"
+            }
+        },
+        "responses": {
+            "400": {
+                "description": "Failed create new produk stok"
             }
         }
     }
