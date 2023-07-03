@@ -14,6 +14,22 @@ class ProdukController extends Controller
     /**
      * Get data all produk
      * 
+     * @OA\Schema(
+     *     schema="Produk",
+     *     title="Produk",
+     *     description="Model of Produk",
+     *     @OA\Property(property="produk_id", type="string", example="47d0ae85-17c6-4b80-b2d7-0efa89cf968f"),
+     *     @OA\Property(property="nama", type="string", example="Kemeja Flanel"),
+     *     @OA\Property(property="brand", type="string", example="Uniqlo"),
+     *     @OA\Property(property="harga", type="integer", example=200000),
+     *     @OA\Property(property="slug", type="string", example="kemeja-flanel"),
+     *     @OA\Property(property="tgl_dibuat", type="string", example="2021-01-01 00:00:00"),
+     *     @OA\Property(property="tgl_diubah", type="string", example="2021-01-01 00:00:00"),
+     *     @OA\Property(property="tgl_release", type="string", example="2021-01-01 00:00:00"),
+     *     @OA\Property(property="tgl_dihapus", type="string", example="2021-01-01 00:00:00")
+     * )
+     * 
+     * 
      * @OA\Get(
      *     path="/api/v1/master-data/produk",
      *     tags={"Master Data - Produk"},
@@ -22,17 +38,7 @@ class ProdukController extends Controller
      *     @OA\Response(response="200", description="Success", @OA\JsonContent(
      *         @OA\Property(property="status", type="integer", example=200),
      *         @OA\Property(property="message", type="string", example="Success get all produk"),
-     *         @OA\Property(property="data", type="array", @OA\Items(
-     *         @OA\Property(property="produk_id", type="string", example="47d0ae85-17c6-4b80-b2d7-0efa89cf968f"),
-     *         @OA\Property(property="nama", type="string", example="Kemeja Flanel"),
-     *         @OA\Property(property="brand", type="string", example="Uniqlo"),
-     *         @OA\Property(property="harga", type="integer", example=200000),
-     *         @OA\Property(property="slug", type="string", example="kemeja-flanel"),
-     *         @OA\Property(property="tgl_dibuat", type="string", example="2021-01-01 00:00:00"),
-     *         @OA\Property(property="tgl_diubah", type="string", example="2021-01-01 00:00:00"),
-     *         @OA\Property(property="tgl_release", type="string", example="2021-01-01 00:00:00"),
-     *         @OA\Property(property="tgl_dihapus", type="string", example="2021-01-01 00:00:00")
-     *          ))
+     *         @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/Produk"))
      *     ))
      * )
      */
@@ -76,17 +82,7 @@ class ProdukController extends Controller
      *     @OA\Response(response="200", description="Success create new produk", @OA\JsonContent(
      *         @OA\Property(property="status", type="integer", example=200),
      *         @OA\Property(property="message", type="string", example="Success get all produk"),
-     *         @OA\Property(property="data", type="array", @OA\Items(
-     *         @OA\Property(property="produk_id", type="string", example="47d0ae85-17c6-4b80-b2d7-0efa89cf968f"),
-     *         @OA\Property(property="nama", type="string", example="Kemeja Flanel"),
-     *         @OA\Property(property="brand", type="string", example="Uniqlo"),
-     *         @OA\Property(property="harga", type="integer", example=200000),
-     *         @OA\Property(property="slug", type="string", example="kemeja-flanel"),
-     *         @OA\Property(property="tgl_dibuat", type="string", example="2021-01-01 00:00:00"),
-     *         @OA\Property(property="tgl_diubah", type="string", example="2021-01-01 00:00:00"),
-     *         @OA\Property(property="tgl_release", type="string", example="2021-01-01 00:00:00"),
-     *         @OA\Property(property="tgl_dihapus", type="string", example="2021-01-01 00:00:00")
-     *          ))
+     *         @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/Produk"))
      *     )),
      *     @OA\Response(response="400", description="Failed create new produk") 
      * )
@@ -181,17 +177,7 @@ class ProdukController extends Controller
      *     @OA\Response(response="200", description="Success", @OA\JsonContent(
      *         @OA\Property(property="status", type="integer", example=200),
      *         @OA\Property(property="message", type="string", example="Success get all produk"),
-     *         @OA\Property(property="data", type="array", @OA\Items(
-     *         @OA\Property(property="produk_id", type="string", example="47d0ae85-17c6-4b80-b2d7-0efa89cf968f"),
-     *         @OA\Property(property="nama", type="string", example="Kemeja Flanel"),
-     *         @OA\Property(property="brand", type="string", example="Uniqlo"),
-     *         @OA\Property(property="harga", type="integer", example=200000),
-     *         @OA\Property(property="slug", type="string", example="kemeja-flanel"),
-     *         @OA\Property(property="tgl_dibuat", type="string", example="2021-01-01 00:00:00"),
-     *         @OA\Property(property="tgl_diubah", type="string", example="2021-01-01 00:00:00"),
-     *         @OA\Property(property="tgl_release", type="string", example="2021-01-01 00:00:00"),
-     *         @OA\Property(property="tgl_dihapus", type="string", example="2021-01-01 00:00:00")
-     *          ))
+     *         @OA\Property(property="data", type="array", @OA\Items(ref="#/components/schemas/Produk"))
      *     ))
      * )
      */

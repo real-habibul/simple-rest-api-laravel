@@ -35,45 +35,7 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "properties": {
-                                                    "produk_id": {
-                                                        "type": "string",
-                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
-                                                    },
-                                                    "nama": {
-                                                        "type": "string",
-                                                        "example": "Kemeja Flanel"
-                                                    },
-                                                    "brand": {
-                                                        "type": "string",
-                                                        "example": "Uniqlo"
-                                                    },
-                                                    "harga": {
-                                                        "type": "integer",
-                                                        "example": 200000
-                                                    },
-                                                    "slug": {
-                                                        "type": "string",
-                                                        "example": "kemeja-flanel"
-                                                    },
-                                                    "tgl_dibuat": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    },
-                                                    "tgl_diubah": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    },
-                                                    "tgl_release": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    },
-                                                    "tgl_dihapus": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    }
-                                                },
-                                                "type": "object"
+                                                "$ref": "#/components/schemas/Produk"
                                             }
                                         }
                                     },
@@ -131,45 +93,7 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "properties": {
-                                                    "produk_id": {
-                                                        "type": "string",
-                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
-                                                    },
-                                                    "nama": {
-                                                        "type": "string",
-                                                        "example": "Kemeja Flanel"
-                                                    },
-                                                    "brand": {
-                                                        "type": "string",
-                                                        "example": "Uniqlo"
-                                                    },
-                                                    "harga": {
-                                                        "type": "integer",
-                                                        "example": 200000
-                                                    },
-                                                    "slug": {
-                                                        "type": "string",
-                                                        "example": "kemeja-flanel"
-                                                    },
-                                                    "tgl_dibuat": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    },
-                                                    "tgl_diubah": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    },
-                                                    "tgl_release": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    },
-                                                    "tgl_dihapus": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    }
-                                                },
-                                                "type": "object"
+                                                "$ref": "#/components/schemas/Produk"
                                             }
                                         }
                                     },
@@ -285,45 +209,7 @@
                                         "data": {
                                             "type": "array",
                                             "items": {
-                                                "properties": {
-                                                    "produk_id": {
-                                                        "type": "string",
-                                                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
-                                                    },
-                                                    "nama": {
-                                                        "type": "string",
-                                                        "example": "Kemeja Flanel"
-                                                    },
-                                                    "brand": {
-                                                        "type": "string",
-                                                        "example": "Uniqlo"
-                                                    },
-                                                    "harga": {
-                                                        "type": "integer",
-                                                        "example": 200000
-                                                    },
-                                                    "slug": {
-                                                        "type": "string",
-                                                        "example": "kemeja-flanel"
-                                                    },
-                                                    "tgl_dibuat": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    },
-                                                    "tgl_diubah": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    },
-                                                    "tgl_release": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    },
-                                                    "tgl_dihapus": {
-                                                        "type": "string",
-                                                        "example": "2021-01-01 00:00:00"
-                                                    }
-                                                },
-                                                "type": "object"
+                                                "$ref": "#/components/schemas/Produk"
                                             }
                                         }
                                     },
@@ -1010,6 +896,49 @@
     },
     "components": {
         "schemas": {
+            "Produk": {
+                "title": "Produk",
+                "description": "Model of Produk",
+                "properties": {
+                    "produk_id": {
+                        "type": "string",
+                        "example": "47d0ae85-17c6-4b80-b2d7-0efa89cf968f"
+                    },
+                    "nama": {
+                        "type": "string",
+                        "example": "Kemeja Flanel"
+                    },
+                    "brand": {
+                        "type": "string",
+                        "example": "Uniqlo"
+                    },
+                    "harga": {
+                        "type": "integer",
+                        "example": 200000
+                    },
+                    "slug": {
+                        "type": "string",
+                        "example": "kemeja-flanel"
+                    },
+                    "tgl_dibuat": {
+                        "type": "string",
+                        "example": "2021-01-01 00:00:00"
+                    },
+                    "tgl_diubah": {
+                        "type": "string",
+                        "example": "2021-01-01 00:00:00"
+                    },
+                    "tgl_release": {
+                        "type": "string",
+                        "example": "2021-01-01 00:00:00"
+                    },
+                    "tgl_dihapus": {
+                        "type": "string",
+                        "example": "2021-01-01 00:00:00"
+                    }
+                },
+                "type": "object"
+            },
             "ProdukStok": {
                 "title": "Produk Stok",
                 "description": "Model of Produk Stok",
