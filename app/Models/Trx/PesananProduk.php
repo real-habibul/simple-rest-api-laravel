@@ -8,11 +8,21 @@ class PesananProduk extends Model
 {
     protected $table = 'Trx.pesanan_produk';
     protected $primaryKey = 'pesanan_produk_id';
+    public $timestamps = false;
 
     protected $casts = [
         'pesanan_produk_id' => 'string',
         'pesanan_id' => 'string',
         'produk_id' => 'string',
+    ];
+
+    protected $fillable = [
+        'pesanan_id',
+        'produk_id',
+        'jumlah',
+        'tgl_dibuat',
+        'tgl_diubah',
+        'tgl_dihapus'
     ];
 
     // Relationships

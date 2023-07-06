@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "API Documentation PT. Rembon Karya Digital",
+        "title": "API Documentation",
         "contact": {
             "name": "Ahmad Habibul Ulum",
             "email": "ahmadhabibululum@gmail.com"
@@ -234,6 +234,227 @@
                                         },
                                         "data": {
                                             "$ref": "#/components/schemas/Pesanan"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/master-data/pesanan-produk": {
+            "get": {
+                "tags": [
+                    "Master Data - Pesanan Produk"
+                ],
+                "summary": "Get all pesanan produk",
+                "description": "Display a listing of the resource.",
+                "operationId": "get pesanan produk /api/v1/master-data/pesanan-produk",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get all pesanan produk"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/PesananProduk"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Master Data - Pesanan Produk"
+                ],
+                "summary": "Store pesanan produk",
+                "description": "Store a newly created resource in storage.",
+                "operationId": "store pesanan produk /api/v1/master-data/pesanan-produk",
+                "requestBody": {
+                    "description": "Store pesanan produk",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "pesanan_id",
+                                    "produk_id",
+                                    "jumlah"
+                                ],
+                                "properties": {
+                                    "pesanan_id": {
+                                        "type": "string",
+                                        "example": "68aed5db-c3fa-491e-85fa-c7134dbb4a9d"
+                                    },
+                                    "produk_id": {
+                                        "type": "string",
+                                        "example": "d746a0e2-64e9-48d6-a974-c10c91ad0b56"
+                                    },
+                                    "jumlah": {
+                                        "type": "integer",
+                                        "example": 2
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 201
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success store pesanan produk"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/PesananProduk"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/master-data/pesanan-produk/{pesanan_produk}": {
+            "get": {
+                "tags": [
+                    "Master Data - Pesanan Produk"
+                ],
+                "summary": "Get pesanan produk by id",
+                "description": "Display the specified resource.",
+                "operationId": "get pesanan produk by id /api/v1/master-data/pesanan-produk/{pesanan_produk}",
+                "parameters": [
+                    {
+                        "name": "pesanan_produk",
+                        "in": "path",
+                        "description": "Pesanan Produk Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get pesanan produk by id"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/PesananProduk"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Master Data - Pesanan Produk"
+                ],
+                "summary": "Update pesanan produk by id",
+                "description": "Update the specified resource in storage.",
+                "operationId": "update pesanan produk by id /api/v1/master-data/pesanan-produk/{pesanan_produk}",
+                "parameters": [
+                    {
+                        "name": "pesanan_produk",
+                        "in": "path",
+                        "description": "Pesanan Produk Id",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update pesanan produk by id",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "pesanan_id",
+                                    "produk_id",
+                                    "jumlah"
+                                ],
+                                "properties": {
+                                    "pesanan_id": {
+                                        "type": "string",
+                                        "example": "68aed5db-c3fa-491e-85fa-c7134dbb4a9d"
+                                    },
+                                    "produk_id": {
+                                        "type": "string",
+                                        "example": "d746a0e2-64e9-48d6-a974-c10c91ad0b56"
+                                    },
+                                    "jumlah": {
+                                        "type": "integer",
+                                        "example": 2
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success update pesanan produk"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/PesananProduk"
                                         }
                                     },
                                     "type": "object"
@@ -1162,6 +1383,41 @@
                     "no_pesanan": {
                         "type": "string",
                         "example": "PES001"
+                    }
+                },
+                "type": "object"
+            },
+            "PesananProduk": {
+                "title": "PesananProduk",
+                "description": "Model of PesananProduk",
+                "properties": {
+                    "pesanan_produk_id": {
+                        "type": "string",
+                        "example": "15c4028b-a6a7-4a2e-ae4e-69ea53d21599"
+                    },
+                    "pesanan_id": {
+                        "type": "string",
+                        "example": "68aed5db-c3fa-491e-85fa-c7134dbb4a9d"
+                    },
+                    "produk_id": {
+                        "type": "string",
+                        "example": "d746a0e2-64e9-48d6-a974-c10c91ad0b56"
+                    },
+                    "jumlah": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "tgl_dibuat": {
+                        "type": "string",
+                        "example": "2021-01-01 00:00:00"
+                    },
+                    "tgl_diubah": {
+                        "type": "string",
+                        "example": "2021-01-01 00:00:00"
+                    },
+                    "tgl_dihapus": {
+                        "type": "string",
+                        "example": "2021-01-01 00:00:00"
                     }
                 },
                 "type": "object"
