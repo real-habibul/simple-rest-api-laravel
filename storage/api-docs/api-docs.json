@@ -9,6 +9,241 @@
         "version": "1.0.1"
     },
     "paths": {
+        "/api/v1/master-data/pesanan": {
+            "get": {
+                "tags": [
+                    "Master Data - Pesanan"
+                ],
+                "summary": "Get all pesanan",
+                "description": "Display a listing of the resource.",
+                "operationId": "get pesanan /api/v1/master-data/pesanan",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get all pesanan"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Pesanan"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Master Data - Pesanan"
+                ],
+                "summary": "Store Pesanan",
+                "description": "Store a newly created resource in storage.",
+                "operationId": "store pesanan",
+                "requestBody": {
+                    "description": "Store Pesanan",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string",
+                                        "example": "621d1723-b376-4e29-baaf-25fcbf3e7595"
+                                    },
+                                    "tgl_pesanan": {
+                                        "type": "string",
+                                        "example": "2023-06-22 00:00:00"
+                                    },
+                                    "kode_voucher": {
+                                        "type": "string",
+                                        "example": "FREE"
+                                    },
+                                    "tgl_pembayaran_lunas": {
+                                        "type": "string",
+                                        "example": "2021-01-01 00:00:00"
+                                    },
+                                    "tgl_dibatalkan": {
+                                        "type": "string",
+                                        "example": "2021-01-01 00:00:00"
+                                    },
+                                    "no_pesanan": {
+                                        "type": "string",
+                                        "example": "PES001"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success create pesanan"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Pesanan"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/master-data/pesanan/{id}": {
+            "get": {
+                "tags": [
+                    "Master Data - Pesanan"
+                ],
+                "summary": "Get Pesanan by ID",
+                "description": "Display the specified resource.",
+                "operationId": "get pesanan by id",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Pesanan ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success get pesanan by id"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Pesanan"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "tags": [
+                    "Master Data - Pesanan"
+                ],
+                "summary": "Update Pesanan",
+                "description": "Update the specified resource in storage.",
+                "operationId": "update pesanan",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Pesanan ID",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "description": "Update Pesanan",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "user_id": {
+                                        "type": "string",
+                                        "example": "621d1723-b376-4e29-baaf-25fcbf3e7595"
+                                    },
+                                    "tgl_pesanan": {
+                                        "type": "string",
+                                        "example": "2023-06-22 00:00:00"
+                                    },
+                                    "kode_voucher": {
+                                        "type": "string",
+                                        "example": "FREE"
+                                    },
+                                    "tgl_pembayaran_lunas": {
+                                        "type": "string",
+                                        "example": "2021-01-01 00:00:00"
+                                    },
+                                    "tgl_dibatalkan": {
+                                        "type": "string",
+                                        "example": "2021-01-01 00:00:00"
+                                    },
+                                    "no_pesanan": {
+                                        "type": "string",
+                                        "example": "PES001"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": 200
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Success update pesanan"
+                                        },
+                                        "data": {
+                                            "$ref": "#/components/schemas/Pesanan"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/v1/master-data/produk": {
             "get": {
                 "tags": [
@@ -896,6 +1131,41 @@
     },
     "components": {
         "schemas": {
+            "Pesanan": {
+                "title": "Pesanan",
+                "description": "Model of Pesanan",
+                "properties": {
+                    "pesanan_id": {
+                        "type": "string",
+                        "example": "635c0bc6-a8b3-4888-8d96-d4e7e1eb4537"
+                    },
+                    "user_id": {
+                        "type": "string",
+                        "example": "621d1723-b376-4e29-baaf-25fcbf3e7595"
+                    },
+                    "tgl_pesanan": {
+                        "type": "string",
+                        "example": "2023-06-22 00:00:00"
+                    },
+                    "kode_voucher": {
+                        "type": "string",
+                        "example": "FREE"
+                    },
+                    "tgl_pembayaran_lunas": {
+                        "type": "string",
+                        "example": "2021-01-01 00:00:00"
+                    },
+                    "tgl_dibatalkan": {
+                        "type": "string",
+                        "example": "2021-01-01 00:00:00"
+                    },
+                    "no_pesanan": {
+                        "type": "string",
+                        "example": "PES001"
+                    }
+                },
+                "type": "object"
+            },
             "Produk": {
                 "title": "Produk",
                 "description": "Model of Produk",

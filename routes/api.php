@@ -54,5 +54,12 @@ Route::prefix('/v1')->group(function () {
                 ->only(['index', 'store', 'show', 'update'])
                 ->parameters(['' => 'user']);
         });
+
+        // Pesanan
+        Route::prefix('/pesanan')->group(function () {
+            Route::apiResource('/', 'App\Http\Controllers\API\V1\MasterData\PesananController')
+                ->only(['index', 'store', 'show', 'update'])
+                ->parameters(['' => 'pesanan']);
+        });
     });
 });
